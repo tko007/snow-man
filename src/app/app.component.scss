@@ -5,6 +5,7 @@
 
   .play-area {
     float: right;
+
     font-size: 70px;
     color: #bdf1d5;
     text-transform: uppercase;
@@ -12,9 +13,16 @@
 
   .snow-man {
 
-    .body {
-
+    .head, .body, .leg, .cap {
+      opacity: 0;
+      transition-duration: 750ms;
     }
+
+    .show-head, .show-body, .show-leg, .show-cap {
+      opacity: 1;
+      transition-duration: 1000ms;
+    }
+
   }
 }
 

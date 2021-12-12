@@ -17,7 +17,7 @@ export class WordGeneratorService {
     private http: HttpClient) {}
 
   getNewWord(): void {
-    this.http.get<string[]>(`${WEB_API}/all`)
+    this.http.get<string[]>(`${WEB_API}/word?number=20`)
       .subscribe(response => {
         const maxValue = response.length;
         const randomValue = this.getRandomInt(maxValue - 1);
