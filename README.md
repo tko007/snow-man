@@ -1,6 +1,7 @@
 # SnowmanHangman
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+And it is deployed to this host: [Snow-man-game](http://vs-snowman-hangman.s3-website.eu-central-1.amazonaws.com)
 
 ## Development server
 
