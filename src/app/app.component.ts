@@ -19,6 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
   alreadyPressedKeys: Set<string> = new Set<string>();
 
   isGameStarted: boolean = false;
+  isGameWin: boolean = false;
+  isGameLost: boolean = false;
 
   private wordSubscription: Subscription = Subscription.EMPTY;
   private pressedKeySubscription: Subscription = Subscription.EMPTY;
@@ -42,6 +44,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public toggleNewGame(): void {
     this.clearState();
     this.isGameStarted = true;
+    this.isGameWin = false;
+    this.isGameLost = false;
 
     this.wordGeneratorService.getNewWord();
   }
@@ -50,7 +54,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isGameStarted = false;
     this.countMistakes = 0;
     this.pressedKey = '';
-    this.guessingWord = '';
     this.actualStateOfGuessingWord = [];
 
     this.alreadyPressedKeys.clear();
@@ -80,6 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.guessingWord.length === numberOfHitValues) {
       console.log("WIN!!! Game is over");
 
+      this.isGameWin = true;
       this.clearState();
     }
   }
@@ -89,9 +93,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.alreadyPressedKeys.add(this.pressedKey);
 
     this.countMistakes += 1;
+    console.log(`Count mistakes: ${this.countMistakes} and game is started: ${this.isGameStarted}`)
 
     if (this.countMistakes === MAXIMUM_NUMBER_OF_MISTAKES) {
       console.log(`The game is lost, the word was ${this.guessingWord}`);
+
+      this.isGameLost = true;
       this.clearState();
     }
   }

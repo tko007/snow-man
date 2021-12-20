@@ -1,21 +1,4 @@
 <div class="wrapper">
-  <div class="play-area">
-    <button *ngIf="!isGameStarted" (click)="toggleNewGame()">New Game</button>
-
-    <div>
-      <ng-template ngFor let-letter [ngForOf]="actualStateOfGuessingWord">
-        <u>{{ letter }}</u>&nbsp;
-      </ng-template>
-    </div>
-
-    <div>
-      <ng-template ngFor let-letter [ngForOf]="alreadyPressedKeys">
-        {{ letter }};
-      </ng-template>
-    </div>
-
-
-  </div>
   <div class="snow-man">
     <svg
       xmlns:svg="http://www.w3.org/2000/svg"
@@ -37,89 +20,112 @@
             d="M 562.85716 795.2193 A 184.28572 154.28572 0 1 1  194.28572,795.2193 A 184.28572 154.28572 0 1 1  562.85716 795.2193 z"
             transform="translate(-105.05586,4.0406102)"
             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2159" [ngClass]="{'show-leg': countMistakes === 1 || !isGameStarted, 'leg':  countMistakes === 0}"/>
+            id="path2159" [ngClass]="{'show-leg': countMistakes >= 1 || !isGameStarted, 'leg':  isGameStarted}"/>
 
           <path
             d="M 614.28569 622.36218 A 71.428574 41.42857 0 1 1  471.42854,622.36218 A 71.428574 41.42857 0 1 1  614.28569 622.36218 z"
             transform="matrix(0.9405787,-0.3793993,0.3650076,0.9048996,-606.6899,255.31984)"
             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.03664064;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2167" [ngClass]="{'show-body': countMistakes === 2 || !isGameStarted, 'body':  countMistakes === 0}"/>
+            id="path2167" [ngClass]="{'show-body': countMistakes >= 2 || !isGameStarted, 'body':  isGameStarted}"/>
 
           <path
             d="M 577.14287 622.36218 A 148.57143 110 0 1 1  280.00002,622.36218 A 148.57143 110 0 1 1  577.14287 622.36218 z"
             transform="translate(-156.48443,4.0406102)"
             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="body" [ngClass]="{'show-body': countMistakes === 2 || !isGameStarted, 'body':  countMistakes === 0}"/>
+            id="body" [ngClass]="{'show-body': countMistakes >= 2 || !isGameStarted, 'body':  isGameStarted}"/>
 
           <path
             d="M 491.42858 516.64789 A 85.714287 87.14286 0 1 1  320.00001,516.64789 A 85.714287 87.14286 0 1 1  491.42858 516.64789 z"
             transform="matrix(1.0006819,0,0,0.8859166,-136.76108,52.981549)"
             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.43453121;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path11111" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path11111" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
 
           <path
             d="M 614.28569 622.36218 A 71.428574 41.42857 0 1 1  471.42854,622.36218 A 71.428574 41.42857 0 1 1  614.28569 622.36218 z"
             transform="matrix(0.9107233,0.413017,-0.413017,0.9107233,184.639,-174.36108)"
             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7;stroke-miterlimit:7;stroke-dasharray:none;stroke-opacity:1"
-            id="path2165" [ngClass]="{'show-body': countMistakes === 2 || !isGameStarted, 'body':  countMistakes === 0}"/>
+            id="path2165" [ngClass]="{'show-body': countMistakes >= 2 || !isGameStarted, 'body':  isGameStarted}"/>
 
           <path
             d="M 243.51557,510.68851 L 163.51557,530.68851 L 249.22985,533.54565 L 243.51557,510.68851 z "
             style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path22222" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path22222" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
 
           <path
             d="M 345.71429 485.21933 A 12.857142 12.857142 0 1 1  320,485.21933 A 12.857142 12.857142 0 1 1  345.71429 485.21933 z"
             transform="translate(-105.05586,4.0406102)"
             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2171" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path2171" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
 
           <path
             d="M 277.80128,547.83136 L 334.94414,573.54564 L 337.80128,547.83136 L 369.22985,567.83136 L 340.65842,584.97421 L 277.80128,547.83136 z "
             style="fill:#552200;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2185" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path2185" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
 
           <path
             d="M 502.85714 435.21933 A 95.714287 22.857143 0 1 1  311.42857,435.21933 A 95.714287 22.857143 0 1 1  502.85714 435.21933 z"
             transform="translate(-133.62729,6.8977531)"
             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2187" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path2187" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
           <rect
             width="122.90294"
             height="103.61723"
             x="214.92123"
             y="332.80844"
             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.95420063;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="rect2189" [ngClass]="{'show-cap': countMistakes === 4 || !isGameStarted, 'cap':  countMistakes === 0}"/>
+            id="rect2189" [ngClass]="{'show-cap': countMistakes >= 4 || !isGameStarted, 'cap':  isGameStarted}"/>
 
           <path
             d="M 210.30129,540.68851 C 290.72889,569.18947 310.89789,529.02047 311.37271,528.54565"
             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path2193" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path2193" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
           <path
             d="M 452.54834,441.21988 A 62.629459,17.172594 0 1 1 327.28942,441.21988"
             transform="matrix(1.0501771,0,0,0.9916468,-133.05922,-15.139698)"
             style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path4136" [ngClass]="{'show-cap': countMistakes === 4 || !isGameStarted, 'cap':  countMistakes === 0}"/>
+            id="path4136" [ngClass]="{'show-cap': countMistakes >= 4 || !isGameStarted, 'cap':  isGameStarted}"/>
           <path
             d="M 452.54834,441.21988 A 62.629459,17.172594 0 1 1 327.28942,441.21988"
             transform="translate(-113.85137,-114.06056)"
             style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path4138" [ngClass]="{'show-cap': countMistakes === 4 || !isGameStarted, 'cap':  countMistakes === 0}"/>
+            id="path4138" [ngClass]="{'show-cap': countMistakes >= 4 || !isGameStarted, 'cap':  isGameStarted}"/>
           <path
             d="M 452.54834,441.21988 A 62.629459,17.172594 0 1 1 327.28942,441.21988"
             transform="matrix(0.8886398,0,0,-1.0196159,-70.42992,777.62096)"
             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path4140" [ngClass]="{'show-cap': countMistakes === 4 || !isGameStarted, 'cap':  countMistakes === 0}"/>
+            id="path4140" [ngClass]="{'show-cap': countMistakes >= 4 || !isGameStarted, 'cap':  isGameStarted}"/>
           <path
             d="M 345.71429 485.21933 A 12.857142 12.857142 0 1 1  320,485.21933 A 12.857142 12.857142 0 1 1  345.71429 485.21933 z"
             transform="translate(-45.97382,15.599563)"
             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-            id="path4142" [ngClass]="{'show-head': countMistakes === 3 || !isGameStarted, 'head':  countMistakes === 0}"/>
+            id="path4142" [ngClass]="{'show-head': countMistakes >= 3 || !isGameStarted, 'head':  isGameStarted}"/>
 
         </g>
       </g>
     </svg>
+
+  </div>
+  <div class="play-area">
+    <div class="button-start" *ngIf="!isGameStarted" (click)="toggleNewGame()">Start Guessing</div>
+
+    <div class="word-guessing">
+      <div class="word-state">
+        <ng-template ngFor let-letter [ngForOf]="actualStateOfGuessingWord">
+          <span><u>{{ letter }}</u></span>
+        </ng-template>
+      </div>
+
+      <div class="word-mistake">
+        <ng-template ngFor let-letter [ngForOf]="alreadyPressedKeys">
+          <span><s>{{ letter }}</s></span>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="final">
+      <div *ngIf="isGameWin">Congratulations and Merry Christmas</div>
+      <div *ngIf="isGameLost">Try again, but Merry Christmas. The word was <i><b>{{ guessingWord }}</b></i></div>
+    </div>
 
   </div>
 

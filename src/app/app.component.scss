@@ -1,17 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Advent Pro');
+
 .wrapper {
   width:100vw;
   height:100vh;
   background: radial-gradient(farthest-corner at 30vw 20vh, #5b737a 1%, #5e4662 100%);
 
   .play-area {
-    float: right;
-
+    width: 100%;
     font-size: 70px;
-    color: #bdf1d5;
+    color: blanchedalmond;
     text-transform: uppercase;
+
+    .button-start {
+      border-radius: 25px;
+      padding: 15px;
+      font-size: 35px;
+      background-color: #5b737a;
+      width: 350px;
+
+      text-align: center;
+      margin: 10px;
+    }
+
+    .word-guessing {
+      .word-state, .word-mistake {
+        margin: 10px;
+        display: flex;
+        align-items: flex-start;
+
+        span {
+          margin: 0 auto;
+          display: block;
+        }
+      }
+
+    }
+
+    .final {
+      font-family: 'Advent Pro';
+      font-size: 35px;
+      margin: 10px;
+    }
   }
 
   .snow-man {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin: 0 auto;
+      display: block;
+    }
 
     .head, .body, .leg, .cap {
       opacity: 0;
